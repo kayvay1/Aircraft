@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <section id="mainbody">
+        <nav>
+            <ul>
+                <h1>PILOT</h1>
+                <a href="#" id="navibtn"><i class="fa fa-navicon"></i></a>
+            </ul>
+            <div class="right">
+                <h2>DASHBORD</h2>
+                <i class="fa fa-search"></i>
+                <div class="icon"></div>
+            </div>
+        </nav>
+        <div id="main">
+            <h1 id="mainheading">AirCraft</h1>
+            <img src="./img/fog1.png" alt="" id="fog1" width="100%">
+            <img src="./img/fog2.png" alt="" id="fog2" width="50%">
+            <img src="./img/fog3.png" alt="" id="fog3" width="50%">
+            <img src="./img/fog4.png" alt="" id="fog4" width="100%">
+            <img src="./img/fog5.png" alt="" id="fog5" width="50%">
+            <img src="./img/fog6.png" alt="" id="fog6" width="100%">
+            <img src="./img/fog7.png" alt="" id="fog7" width="60%">
+
+            <!-- aircratf image ko yahan se suru ki hai -->
+
+            <div class="planemain">
+            <img src="./img/Plane12.png" alt="" width="70%" id="plane1">
+            <img src="./img/Plane5.png" alt="" width="70%" id="plane2">
+            <img src="./img/Plane6.png" alt="" width="70%" id="plane3">
+            <img src="./img/Plane7.png" alt="" width="70%" id="plane4">
+            <img src="./img/Plane8.png" alt="" width="70%" id="plane5">
+            <img src="./img/Plane9.png" alt="" width="70%" id="plane6">
+            <img src="./img/Plane2.png" alt="" width="70%" id="plane7">
+            </div>
+
+            <div id="speed">
+                <p>  SPEED MAX</p>
+                <div id="speedcontain">
+                    <h1>500</h1>
+                    <h1>700</h1>
+                    <h1>900</h1>
+                    <h1>1000</h1>
+                    <h1>1200</h1>
+                    <h1>1500</h1>
+                    <h1>2000</h1>
+                </div>
+            </div>
+            <div id="capacity">
+                <p>CAPACITY</p>
+                <div id="capacitycontain">
+                    <h1>50</h1>
+                    <h1>80</h1>
+                    <h1>100</h1>
+                    <h1>120</h1>
+                    <h1>150</h1>
+                    <h1>190</h1>
+                    <h1>250</h1>
+                </div>
+            </div>
+
+            <!-- circle yahan hai -->
+            <img src="./img/Degree2.png" alt="" width="40%" id="circle">
+            <h1 id="meater">$78,568</h1>
+        </div>
+
+        <!-- butten is here -->
+        <a href="#" id="nextbtn">Next</a>
+
+        <!-- <div id="circlediv">
+            <img src="./img/Degree.png" alt="" width="40%">
+        </div> -->
+
+        <div id="sidebar">
+            <div id="sidecontant">
+                <a href="#" id="closebtn"><i class="fa fa-close"></i></a>
+                
+                <br>
+                
+                <div id="navbar">
+                    <a href="#"><i class="fa fa-home"></i></i>Home</a>
+                    <a href="#"><i class="fa fa-cab"></i>Cars</a>
+                    <a href="#"><i class="fa fa-github"></i></i>Git</a>
+                    <a href="#"><i class="fa fa-youtube-play"></i></i></i>You Tube</a>
+                    <a href="#"><i class="fa fa-instagram"></i></i></i>Instagram</a>
+                    <a href="#"><i class="fa fa-facebook-square"></i></i>Facebook</a>
+                    <a href="#"><i class="fa fa-user-circle-o"></i></i>Login</a>
+                </div>
+                <br>
+
+                <p style="text-align: center; margin-left: -50px;">  Trem & Policy: AIRCRAFT Design by Kay</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        let fog1 = document.getElementById("fog1");
+        let fog2 = document.getElementById("fog2");
+        let fog3 = document.getElementById("fog3");
+        let fog4 = document.getElementById("fog4");
+        let fog5 = document.getElementById("fog5");
+        let fog6 = document.getElementById("fog6");
+        let fog7 = document.getElementById("fog7");
+
+        let plane1 = document.getElementById("plane1");
+        let plane2 = document.getElementById("plane2");
+        let plane3 = document.getElementById("plane3");
+        let plane4 = document.getElementById("plane4");
+        let plane5 = document.getElementById("plane5");
+        let plane6 = document.getElementById("plane6");
+        let plane7 = document.getElementById("plane7");
+
+        let circle = document.getElementById("circle");
+        let meater = document.getElementById("meater");
+
+        let nextbtn = document.getElementById("nextbtn");
+        let navibtn = document.getElementById("navibtn");
+        let closebtn = document.getElementById("closebtn");
+        let sidebar = document.getElementById("sidebar");
+
+        let speedcontain = document.querySelector("#speedcontain h1:nth-child(1)")
+        let capacitycontain = document.querySelector("#capacitycontain h1:nth-child(1)")
+        
+        navibtn.addEventListener("click", function(){
+            sidebar.style.marginLeft = 0+"%"
+        })
+        closebtn.addEventListener("click", function(){
+            sidebar.style.marginLeft = -50+"%"
+        })
+
+        // sidebar.style.marginLeft = -50+"%"
+        let index = 0;
+        nextbtn.addEventListener("click", function click(){
+            indexPlus();
+            circleRotate();
+            airCraft()
+            console.log(index)
+        })
+        window.addEventListener("wheel", function(e){
+            let scrollvalue = e.deltaY
+            let xscroll = scrollvalue + index;
+            index++
+            let x = index*.3;
+            circle.style.rotate = 45*index + "deg"
+            if(index <= 6){
+                fogOut()
+                plane1.style.marginLeft = -1300 + "px"
+                plane2.style.marginLeft = -1100 + "px"
+                speedcontain.style.marginTop = -45+"px"
+                capacitycontain.style.marginTop = -45+"px"
+                meater.innerHTML = "$79,999"
+            }else if(index <= 12){
+                // fogIn()
+                fogRemove()
+                plane2.style.marginLeft = -2400 + "px"
+                plane3.style.marginLeft = -1100 + "px"
+                speedcontain.style.marginTop = -90+"px"
+                capacitycontain.style.marginTop = -90+"px"
+                meater.innerHTML = "$86,999"
+            }else if(index <= 18){
+                fogOut()
+                plane3.style.marginLeft = -2400+"px"
+                plane4.style.marginLeft = -1100+"px"
+                speedcontain.style.marginTop = -125+"px"
+                capacitycontain.style.marginTop = -125+"px"
+                meater.innerHTML = "$1,23,670"
+            }else if(index <= 24){
+                fogIn()
+                plane4.style.marginLeft = -2400+"px"
+                plane5.style.marginLeft = -1100+"px"
+                speedcontain.style.marginTop = -160+"px"
+                capacitycontain.style.marginTop = -160+"px"
+                meater.innerHTML = "$1,28,670"
+            }else if(index <= 30){
+                fogOut()
+                plane5.style.marginLeft = -2400+"px"
+                plane6.style.marginLeft = -1100+"px"
+                speedcontain.style.marginTop = -205+"px"
+                capacitycontain.style.marginTop = -205+"px"
+                meater.innerHTML = "$2,45,970"
+            }else if(index <= 36){
+                fogIn()
+                plane6.style.marginLeft = -2400+"px"
+                plane7.style.marginLeft = -1100+"px"
+                speedcontain.style.marginTop = -240+"px"
+                capacitycontain.style.marginTop = -240+"px"
+                meater.innerHTML = "$3,99,999"
+            }else{
+                location.reload()
+            }
+            console.log(x)
+        })
+
+
+
+        function indexPlus(){
+            index++
+            // console.log("index called")
+        }
+        function circleRotate(){
+            let value = index*273;
+            circle.style.rotate = value + "deg"
+        }
+
+
+        
+
+        function airCraft(){
+            if(index === 1){
+                fogOut()
+                plane1.style.marginLeft = -1300 + "px"
+                plane2.style.marginLeft = -1100 + "px"
+                speedcontain.style.marginTop = -45+"px"
+                capacitycontain.style.marginTop = -45+"px"
+                meater.innerHTML = "$79,999"
+            }else if(index === 2){
+                // fogIn()
+                fogRemove()
+                plane2.style.marginLeft = -2400 + "px"
+                plane3.style.marginLeft = -1100 + "px"
+                speedcontain.style.marginTop = -90+"px"
+                capacitycontain.style.marginTop = -90+"px"
+                meater.innerHTML = "$86,999"
+            }else if(index === 3){
+                fogOut()
+                plane3.style.marginLeft = -2400+"px"
+                plane4.style.marginLeft = -1100+"px"
+                speedcontain.style.marginTop = -125+"px"
+                capacitycontain.style.marginTop = -125+"px"
+                meater.innerHTML = "$1,23,670"
+            }else if(index === 4){
+                fogIn()
+                plane4.style.marginLeft = -2400+"px"
+                plane5.style.marginLeft = -1100+"px"
+                speedcontain.style.marginTop = -160+"px"
+                capacitycontain.style.marginTop = -160+"px"
+                meater.innerHTML = "$1,28,670"
+            }else if(index === 5){
+                fogOut()
+                plane5.style.marginLeft = -2400+"px"
+                plane6.style.marginLeft = -1100+"px"
+                speedcontain.style.marginTop = -205+"px"
+                capacitycontain.style.marginTop = -205+"px"
+                meater.innerHTML = "$2,45,970"
+            }else if(index === 6){
+                fogIn()
+                plane6.style.marginLeft = -2400+"px"
+                plane7.style.marginLeft = -1100+"px"
+                speedcontain.style.marginTop = -240+"px"
+                capacitycontain.style.marginTop = -240+"px"
+                meater.innerHTML = "$3,99,999"
+            }else{
+                location.reload()
+            }
+
+        }
+
+
+        function fogOut(){
+            fog2.style.marginTop = -200+ "px"
+            fog3.style.marginLeft = 200+ "px"
+            fog4.style.marginLeft = 100+ "px"
+            fog5.style.marginLeft = 50+ "px"
+            fog6.style.marginLeft = 150+ "px"
+            fog7.style.marginLeft = 1500+ "px"
+            fog7.style.marginTop = 150+ "px"
+        }
+        function fogRemove(){
+            fog2.style.marginTop = -500+ "px"
+            fog3.style.marginLeft = 300+ "px"
+            fog4.style.marginLeft = 500+ "px"
+            fog5.style.marginLeft = 100+ "px"
+            fog6.style.marginLeft = 450+ "px"
+            fog7.style.marginLeft = -1500+ "px"
+            fog7.style.marginTop = -150+ "px"
+        }
+        function fogIn(){
+            fog2.style.marginTop =  0+ "px"
+            fog3.style.marginLeft = 0+ "px"
+            fog4.style.marginLeft = 0+ "px"
+            fog5.style.marginLeft = 0+ "px"
+            fog6.style.marginLeft = 0+ "px"
+            fog7.style.marginLeft = 0+ "px"
+            fog7.style.marginTop = 0+ "px"
+        }
+
+
+        // function checkKey(e){
+        //     var event = window.event ? window.event : e;
+        //     console.log(event.keyCode)
+        // }
+        // checkKey()
+        // document.onkeydown = checkKey;
+
+        
+
+    </script>
+
+
+
+    
+</body>
+</html>
